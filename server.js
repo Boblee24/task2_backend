@@ -7,6 +7,7 @@ const dotEnv = require('dotenv');
 const PORT = process.env.PORT || 5000;
 dotEnv.config({ path:"./api/.env" });
 
+app.use(express.json())
 app.use(cors());
 
 
