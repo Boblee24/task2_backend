@@ -11,6 +11,8 @@ dotEnv.config({ path: "./api/.env" });
 app.use(express.json());
 app.use(cors());
 
+console.log(process.env.NEXT_PUBLIC_API_URL)
+
 app.get('/api/products', async (req, res) => {
   try {
     const { page, size } = req.query;
@@ -24,15 +26,18 @@ app.get('/api/products', async (req, res) => {
         Apikey: process.env.NEXT_PUBLIC_API_URL,
       },
     });
-    res.json(response.data);
+    console.log(response, 'response');
+
+    return res.json(response.data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching products' });
   }
 });
 
+
 app.get('/', (req, res) => {
-  res.send("Welcome to Express & TypeScript Server");
+  res.send(`Welcome to Express & TypeScript Server ${process.env.NEXT_PUBLIC_API_URL}`);
 });
 
 app.listen(PORT, () => {
