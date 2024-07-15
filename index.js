@@ -1,15 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const path = require('path');
-const app = express();
 const dotEnv = require('dotenv');
+
+const app = express();
 const PORT = process.env.PORT || 5000;
-dotEnv.config({ path:"./api/.env" });
 
-app.use(express.json())
+dotEnv.config({ path: "./api/.env" });
+
+app.use(express.json());
 app.use(cors());
-
 
 app.get('/api/products', async (req, res) => {
   try {
