@@ -14,7 +14,7 @@ app.use(cors());
 app.get('/api/products', async (req, res) => {
   try {
     const { page, size } = req.query;
-    const response = await axios.get(`https://timbu-get-all-products.reavdev.workers.dev`, {
+    const response = await axios.get(`https://timbu-get-all-products.reavdev.workers.dev/?`, {
       params: {
         organization_id: '2e9285e1bbce4b55afe9b33258add851',
         reverse_sort: false,
