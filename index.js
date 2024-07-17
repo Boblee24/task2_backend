@@ -15,7 +15,7 @@ app.get("/api/products", async (req, res) => {
   try {
     const { page, size } = req.query;
     const response = await axios.get(
-      `https://timbu-get-all-products.reavdev.workers.dev/`,
+      `https://api.timbu.cloud/products`,
       {
         params: {
           organization_id: "2e9285e1bbce4b55afe9b33258add851",
@@ -27,7 +27,7 @@ app.get("/api/products", async (req, res) => {
         },
       }
     );
-    console.log(response, "response");
+    // console.log(response, "response");
 
     return res.json(response.data);
   } catch (error) {
